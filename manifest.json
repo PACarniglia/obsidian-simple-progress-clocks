@@ -1,7 +1,7 @@
 {
   "id": "obsidian-simple-progress-clocks",
   "name": "Simple Progress Clocks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "minAppVersion": "0.15.0",
   "description": "Interactive RPG-style progress clocks defined via code blocks.",
   "author": "Antigravity",
