@@ -1,0 +1,17 @@
+# Dependency directories
+node_modules/
+
+# Build outputs (Obsidian requires main.js and styles.css to be committed to the root, so we only ignore temporary/maps)
+*.map
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln

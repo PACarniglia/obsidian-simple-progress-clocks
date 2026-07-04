@@ -1,0 +1,18 @@
+{
+  "name": "obsidian-simple-progress-clocks",
+  "version": "1.0.0",
+  "description": "Interactive RPG-style progress clocks defined via code blocks.",
+  "main": "main.js",
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "node esbuild.config.mjs production"
+  },
+  "keywords": [],
+  "author": "Antigravity",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.19.11",
+    "obsidian": "^1.4.16",
+    "typescript": "^5.3.3"
+  }
+}

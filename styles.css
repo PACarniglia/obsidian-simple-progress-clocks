@@ -1,0 +1,152 @@
+/* Multi-clock grid layout */
+.progress-clock-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  margin: 12px 0;
+}
+
+/* Progress Clock Container */
+.progress-clock-container {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-primary-alt);
+  border: 1px solid var(--border-color, var(--background-modifier-border));
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  user-select: none;
+}
+
+/* Glassmorphism styling if theme permits */
+.theme-dark .progress-clock-container {
+  background-color: rgba(30, 32, 48, 0.45);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.progress-clock-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border-color: var(--interactive-accent);
+}
+
+.theme-dark .progress-clock-container:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Header & Typography */
+.progress-clock-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 14px;
+  width: 100%;
+}
+
+.progress-clock-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-normal);
+  text-align: center;
+  margin-bottom: 2px;
+  letter-spacing: -0.2px;
+}
+
+.progress-clock-fraction {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* SVG Styling */
+.progress-clock-svg-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+svg.progress-clock-svg {
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+  transition: filter 0.2s ease;
+}
+
+svg.progress-clock-svg:hover {
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.25));
+}
+
+/* SVG Slice Styles */
+.clock-slice {
+  stroke-linejoin: round;
+}
+
+/* Unfilled Slices */
+.clock-slice-unfilled {
+  fill: rgba(0, 0, 0, 0.03);
+  stroke: var(--background-modifier-border);
+  stroke-width: 3px;
+  transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+.theme-dark .clock-slice-unfilled {
+  fill: rgba(255, 255, 255, 0.03);
+  stroke: rgba(255, 255, 255, 0.15);
+  stroke-width: 3px;
+}
+
+/* Hovering over empty slice: show subtle highlight */
+.clock-slice-unfilled:hover {
+  fill: rgba(0, 0, 0, 0.08);
+}
+
+.theme-dark .clock-slice-unfilled:hover {
+  fill: rgba(255, 255, 255, 0.1);
+}
+
+/* Next fillable slice indicator */
+.clock-slice-next-highlight {
+  cursor: pointer;
+  animation: pulse-light 2s infinite ease-in-out;
+}
+
+.theme-dark .clock-slice-next-highlight:hover {
+  fill: rgba(255, 255, 255, 0.15);
+  stroke: rgba(255, 255, 255, 0.3);
+}
+
+/* Filled Slices */
+.clock-slice-filled {
+  stroke-width: 3px;
+  transition: opacity 0.2s ease;
+}
+
+/* Custom Inner Cutout */
+.clock-center-cutout {
+  fill: var(--background-primary-alt);
+  stroke: var(--background-modifier-border);
+  stroke-width: 2px;
+  transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+.theme-dark .clock-center-cutout {
+  fill: #1a1b26; /* Dark slate matching container background */
+  stroke: rgba(255, 255, 255, 0.12);
+}
+
+/* Animation effects */
+@keyframes pulse-light {
+  0% { opacity: 0.85; }
+  50% { opacity: 0.6; }
+  100% { opacity: 0.85; }
+}
