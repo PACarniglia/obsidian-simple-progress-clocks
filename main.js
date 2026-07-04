@@ -101,10 +101,12 @@ var SimpleProgressClocksPlugin = class extends import_obsidian.Plugin {
             name = val.replace(/^['"]|['"]$/g, "");
           } else if (key === "total") {
             const parsed = parseInt(val, 10);
-            if (!isNaN(parsed)) total = Math.max(1, parsed);
+            if (!isNaN(parsed))
+              total = Math.max(1, parsed);
           } else if (key === "value") {
             const parsed = parseInt(val, 10);
-            if (!isNaN(parsed)) value = parsed;
+            if (!isNaN(parsed))
+              value = parsed;
           } else if (key === "color") {
             color = val.replace(/^['"]|['"]$/g, "");
           }
@@ -186,9 +188,11 @@ var SimpleProgressClocksPlugin = class extends import_obsidian.Plugin {
   }
   async updateClockValue(el, ctx, clockIndex, newValue) {
     const file = this.app.vault.getAbstractFileByPath(ctx.sourcePath);
-    if (!file || !(file instanceof import_obsidian.TFile)) return;
+    if (!file || !(file instanceof import_obsidian.TFile))
+      return;
     const section = ctx.getSectionInfo(el);
-    if (!section) return;
+    if (!section)
+      return;
     try {
       const content = await this.app.vault.read(file);
       const lines = content.split("\n");
